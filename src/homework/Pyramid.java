@@ -1,30 +1,36 @@
 package homework;
 
-public class Pyramid {
+public class Pyramid  {
 	public static void main(String[] args) {
-		makePyramid(7);
+		makePyramid(3);
     }
 	
 	public static void makePyramid(int num) {
 		// your code goes here
-      //int n = num;
+     if (!(num >= 1 && num <=8)){
+		System.out.println("INVALID INPUT");
+       return;
+     }
+      String row = "";
       
-      for (int i = 1; i <= num && num <= 8; i++) {
-      	for (int j = 1; j <= num - i; j++) {
-        	System.out.print(" ");
+      for (int i = 0; i<num; i++){
+        for(int j = 1;j<num-i;j++ ){
+          row+=" ";
         }
-        for (int j = 1; j <= i; j++) {
-        	System.out.print("#");
-        }
-        System.out.print("  ");
         
-        for (int j = 1; j <= i; j++) {
-        	System.out.print("#");
+        for(int k = 0; k<= i; k++){
+          row+="#";
         }
-        System.out.println();
+        row+="  ";
+        for(int j = 0;j<=i;j++){
+          row +="#";
+        }
+        
+        if(i!= (num-1)){
+          row += "\n";
+        }
       }
-      if (num <= 0 || num > 8) {
-      	System.out.println("INVALID INPUT");
-      }
-	}
+      System.out.println(row);
+        
+   	}
 }
